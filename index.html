@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div id="game-data">
+      <div>Lives left: <span id="lives">3</span></div>
+      <div>Score: <span id="current-score">0</span></div>
+    </div>
+    <div id="start-panel">
+      <h2>Snake <span>vs</span><br />colors!</h2>
+      <button class="btn" id="play">
+        Play now
+        <svg width="170px" height="48px" viewBox="0 0 170 48" class="border">
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="bg-line" />
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="hl-line" />
+        </svg>
+      </button>
+      <img draggable="false" src="assets/img/snake.png" alt="Snake" />
+    </div>
+    <canvas id="main-canvas" class="hidden"></canvas>
+    <div id="pause-panel" class="hidden">
+      <h2>Your game is paused</h2>
+      <button class="btn" id="continue">
+        Continue
+        <svg width="170px" height="48px" viewBox="0 0 170 48" class="border">
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="bg-line" />
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="hl-line" />
+        </svg>
+      </button>
+    </div>
+    <div id="end-panel" class="hidden">
+      <h2>Game over</h2>
+      <div>Score: <span id="final-score">0</span></div>
+      <button class="btn" id="play-again">
+        Play again
+        <svg width="170px" height="48px" viewBox="0 0 170 48" class="border">
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="bg-line" />
+          <polyline points="169,1 169,47 1,47 1,1 169,1" class="hl-line" />
+        </svg>
+      </button>
+    </div>
+    <a
+      href="https://www.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_39657505.htm#query=flat%20landscape&position=0&from_view=keyword&track=ais&uuid=0e8b7754-7ef7-4fc3-8744-60fef637b34e"
+      >Image by pvproductions</a
+    >
+    on Freepik
+    <script src="assets/js/constants.js"></script>
+    <script src="assets/js/models/background.js"></script>
+    <script src="assets/js/models/square.js"></script>
+    <script src="assets/js/models/fruit.js"></script>
+    <script src="assets/js/models/snake.js"></script>
+    <script src="assets/js/models/game.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
