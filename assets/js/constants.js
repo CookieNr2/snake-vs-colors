@@ -1,4 +1,4 @@
-const SQUARE_SIZE = 25;
+const SQUARE_SIZE = 28;
 
 const GRID_H = 20;
 const GRID_W = 20;
