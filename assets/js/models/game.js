@@ -5,6 +5,9 @@ class Game {
     this.canvas.width = CANVAS_W;
     this.ctx = this.canvas.getContext("2d");
 
+    this.pausePanel = document.getElementById("pause-panel");
+    this.endPanel = document.getElementById("end-panel");
+
     this.fps = FPS;
     this.score = 0;
     this.lives = 3;
@@ -84,15 +87,39 @@ class Game {
 
   onKeyEvent(event) {
     this.snake.onKeyEvent(event);
-    if (event.keyCode === KEY_SPACE) {
-      this.pause();
+    if (event.keyCode === KEY_SPACE && event.type === "keydown") {
+      if (this.isPaused()) {
+        this.unpause();
+      } else {
+        this.pause();
+      }
     }
   }
 
   pause() {
-    this.stop();
-    document.getElementById("pause-panel").classList.remove("hidden");
-    document.getElementById("main-canvas").classList.add("hidden");
+    if (!this.isPaused()) {
+      this.stop();
+      this.toggleElementVisibility(this.pausePanel, true);
+      this.toggleElementVisibility(this.canvas, false);
+    }
+  }
+
+  unpause() {
+    if (this.isPaused()) {
+      this.start();
+      this.toggleElementVisibility(this.pausePanel, false);
+      this.toggleElementVisibility(this.canvas, true);
+    }
+  }
+
+  toggleElementVisibility(element, visible) {
+    element.classList.toggle("hidden", !visible);
+  }
+
+  isPaused() {
+    return (
+      this.drawIntervalId === undefined && this.moveIntervalId === undefined
+    );
   }
 
   stop() {
@@ -104,8 +131,8 @@ class Game {
 
   finishGame() {
     this.stop();
-    document.getElementById("end-panel").classList.remove("hidden");
-    document.getElementById("main-canvas").classList.add("hidden");
+    this.toggleElementVisibility(this.canvas, false);
+    this.toggleElementVisibility(this.endPanel, true);
     document.getElementById("final-score").innerText = this.score;
   }
 

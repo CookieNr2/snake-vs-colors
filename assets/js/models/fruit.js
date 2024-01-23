@@ -37,6 +37,30 @@ class Fruit {
     this.y = randomPosition.y;
   }
 
+  splash() {
+    const rect = document.getElementById("main-canvas").getBoundingClientRect();
+
+    confetti({
+      spread: 360,
+      ticks: 1500,
+      gravity: 0,
+      decay: 1,
+      startVelocity: 2,
+      colors: [this.color],
+      particleCount: 100,
+      scalar: 1,
+      particleCount: 10,
+      origin: {
+        x:
+          (rect.left + this.x * SQUARE_SIZE + SQUARE_SIZE / 2) /
+          window.innerWidth,
+        y:
+          (rect.top + this.y * SQUARE_SIZE + SQUARE_SIZE / 2) /
+          window.innerHeight,
+      },
+    });
+  }
+
   draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.shadowBlur = 15;

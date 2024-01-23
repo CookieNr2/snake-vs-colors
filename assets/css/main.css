@@ -17,6 +17,7 @@ body {
     background-image: url("../../assets/img/sunset-silhouettes.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: bottom;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,13 +60,12 @@ a {
     margin-bottom: 10px;
     color: #2E2B4A;
     position: fixed;
-    top: 145px;
+    top: 105px;
 }
 
-#start-panel,
-#end-panel,
-#pause-panel {
+.panel {
     background-color: #181825;
+    padding-top: 40px;
     width: 560px;
     height: 560px;
     display: flex;
@@ -74,6 +74,36 @@ a {
     justify-content: center;
     position: absolute;
 }
+
+div > .material-symbols-outlined {
+    border: 2px solid black;
+  box-shadow: 2px 2px black;
+  font-size: 2em;
+  line-height: .85em;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: .05em;
+  padding: 10px 15px;
+  white-space: nowrap;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#instructions-panel div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "up-arrow up-arrow up-arrow"
+    "left-arrow down-arrow right-arrow";
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.up-arrow { grid-area: up-arrow; }
+.left-arrow { grid-area: left-arrow; }
+.down-arrow { grid-area: down-arrow; }
+.right-arrow { grid-area: right-arrow; }
 
 #main-canvas {
     position: absolute;
@@ -87,12 +117,13 @@ a {
 .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: all 2s;
+    transition: all 0.5s;
 }
 
 img {
-    max-width: 120px;
-    margin-top: 25px;
+    max-width: 440px;
+    position: absolute;
+    top: -118.8px;
 }
 
 .btn {
@@ -135,4 +166,20 @@ svg {
     color: white;
     font-size: 18px;
     font-weight: 100;
+  }
+
+  #go-back {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 110px;
+    height: auto;
+    border: none;
+    margin-bottom: 0;
+  }
+  #go-back:hover {
+    background: none;
   }

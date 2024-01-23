@@ -69,6 +69,7 @@ class Snake {
   eatFruit(fruit) {
     if (this.x === fruit.x && this.y === fruit.y) {
       console.log("Snake has eaten the fruit!");
+      fruit.splash();
       fruit.spawn();
       return true;
     }
