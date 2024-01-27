@@ -18,3 +18,5 @@ const SNAKE_MOVE_RATE = 500;
 
 const SNAKE_IN_TRANS = 0.75;
 const SNAKE_FN_TRANS = 1;
+
+const SCORE_KEY = "scores";

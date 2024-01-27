@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snake vs colors</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/img/favicon/favicon-16x16.png"
+    />
+    <!--<link rel="manifest" href="assets/img/favicon/site.webmanifest" />-->
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#000000" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -85,7 +104,8 @@
     </div>
     <div id="end-panel" class="panel hidden">
       <h2>Game over</h2>
-      <div>Score: <span id="final-score">0</span></div>
+      <div>Your score: <span id="final-score">0</span></div>
+      <div id="best-score"></div>
       <button class="btn" id="play-again">
         Play again
         <svg width="170px" height="48px" viewBox="0 0 170 48" class="border">
@@ -98,6 +118,7 @@
       href="https://www.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_39657505.htm#query=flat%20landscape&position=0&from_view=keyword&track=ais&uuid=0e8b7754-7ef7-4fc3-8744-60fef637b34e"
       >Image by pvproductions on Freepik</a
     >
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <script src="assets/js/constants.js"></script>
     <script src="assets/js/models/background.js"></script>
     <script src="assets/js/models/square.js"></script>

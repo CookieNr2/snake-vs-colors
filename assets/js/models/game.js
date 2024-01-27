@@ -131,9 +131,27 @@ class Game {
 
   finishGame() {
     this.stop();
+    this.saveScore(this.score);
     this.toggleElementVisibility(this.canvas, false);
     this.toggleElementVisibility(this.endPanel, true);
     document.getElementById("final-score").innerText = this.score;
+  }
+
+  saveScore(score) {
+    const existingScore = localStorage.getItem(SCORE_KEY)
+      ? localStorage.getItem(SCORE_KEY)
+      : 0;
+
+    if (score > existingScore) {
+      localStorage.setItem(SCORE_KEY, score);
+      document.getElementById(
+        "best-score"
+      ).innerText = `New best score: ${this.score}`;
+    } else {
+      document.getElementById(
+        "best-score"
+      ).innerText = `Best score: ${existingScore}`;
+    }
   }
 
   reset() {
