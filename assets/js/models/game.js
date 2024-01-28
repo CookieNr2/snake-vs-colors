@@ -229,6 +229,7 @@ class Game {
 
   finishGame() {
     this.stop();
+    this.reset();
     this.saveScore(this.score);
     this.toggleElementVisibility(this.canvas, false);
     this.toggleElementVisibility(this.endPanel, true);
@@ -256,6 +257,7 @@ class Game {
     this.score = 0;
     this.lives = 3;
     this.regularSnakeSpeed = SNAKE_MOVE_RATE;
+    this.reloadSnakeSpeed();
     document.getElementById("current-score").innerText = this.score;
     document.getElementById("lives").innerText = this.lives;
     this.snake = new Snake(
