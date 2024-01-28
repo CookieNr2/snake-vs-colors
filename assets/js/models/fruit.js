@@ -8,10 +8,19 @@ class Fruit {
     this.color = undefined;
     this.overlap = true;
 
+    this.spawnTimeoutId = undefined;
+
     this.spawn();
   }
 
   spawn() {
+    clearTimeout(this.spawnTimeoutId);
+
+    this.spawnTimeoutId = setTimeout(
+      this.spawn.bind(this),
+      5000 + 5000 * Math.random()
+    );
+
     this.color = `hsl(${~~(Math.random() * 360)},100%,50%)`;
     const availablePositions = [];
     // Goes through all squares of the canvas and they do not overlap with the Snake they are pushed to the availablePositions array.
