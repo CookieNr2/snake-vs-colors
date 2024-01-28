@@ -5,6 +5,7 @@ class Fruit {
 
     this.x = undefined;
     this.y = undefined;
+    this.color = undefined;
     this.overlap = true;
 
     this.spawn();

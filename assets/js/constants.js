@@ -14,6 +14,8 @@ const KEY_UP = 38;
 const KEY_DOWN = 40;
 const KEY_SPACE = 32;
 
+const POINTS_PER_FRUIT = 10;
+
 const SNAKE_MOVE_RATE = 500;
 const SPEED_INCREMENT = 2;
 

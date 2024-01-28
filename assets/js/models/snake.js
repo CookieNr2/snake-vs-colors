@@ -80,16 +80,23 @@ class Snake {
   }
 
   isEatingBody() {
-    // Check if the current snake x & y eats a body. if they have, return true. else false.
+    // Check if the current snake x & y eats a body.
     const body = this.currentSnake.slice(0, this.currentSnake.length - 1);
     const head = this.currentSnake[this.currentSnake.length - 1];
-    let result = false;
-    body.forEach((square) => {
+    let collisionIndex = -1;
+    body.forEach((square, index) => {
       if (head.x === square.x && head.y === square.y) {
-        result = true;
+        collisionIndex = index;
       }
     });
-    return result;
+    if (collisionIndex >= 0) {
+      const explosiveSnake = this.currentSnake.splice(0, collisionIndex + 1);
+      explosiveSnake.forEach((square) => {
+        square.splash();
+      });
+    }
+
+    return collisionIndex + 1;
   }
 
   onKeyEvent(event) {

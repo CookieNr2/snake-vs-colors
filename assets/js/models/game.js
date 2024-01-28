@@ -62,12 +62,15 @@ class Game {
     // Fruit eaten: logic to add points
     const snakeEatsFruit = this.snake.move(this.fruit);
     if (snakeEatsFruit) {
-      this.score += 10;
+      this.score += POINTS_PER_FRUIT;
       document.getElementById("current-score").innerText = this.score;
       this.checkScore();
     }
-    if (this.snake.isEatingBody()) {
+    const blocksEaten = this.snake.isEatingBody();
+    if (blocksEaten > 0) {
       this.lives--;
+      this.score -= POINTS_PER_FRUIT * blocksEaten;
+      document.getElementById("current-score").innerText = this.score;
       document.getElementById("lives").innerText = this.lives;
       if (this.lives < 1) this.finishGame();
     }
