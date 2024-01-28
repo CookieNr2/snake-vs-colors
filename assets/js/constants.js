@@ -15,6 +15,7 @@ const KEY_DOWN = 40;
 const KEY_SPACE = 32;
 
 const SNAKE_MOVE_RATE = 500;
+const SPEED_INCREMENT = 2;
 
 const SNAKE_IN_TRANS = 0.75;
 const SNAKE_FN_TRANS = 1;

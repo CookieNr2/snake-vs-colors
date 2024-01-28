@@ -7,6 +7,8 @@ class Snake {
     this.lastDirection = undefined;
     this.direction = KEY_RIGHT;
 
+    this.sound = new Audio("assets/audio/piano-sound.wav");
+
     this.currentSnake = [
       new Square(this.ctx, x - 2, y),
       new Square(this.ctx, x - 1, y),
@@ -35,6 +37,7 @@ class Snake {
   move(fruit) {
     this.checkMovingBackwards();
     this.lastDirection = this.direction;
+
     switch (this.direction) {
       case KEY_UP:
         this.y--;
@@ -68,7 +71,7 @@ class Snake {
    */
   eatFruit(fruit) {
     if (this.x === fruit.x && this.y === fruit.y) {
-      console.log("Snake has eaten the fruit!");
+      this.sound.play();
       fruit.splash();
       fruit.spawn();
       return true;
@@ -115,7 +118,7 @@ class Snake {
     }
     this.ctx.fillStyle = `hsla(360, 0%, 100%, 1)`;
 
-    this.ctx.shadowBlur = 15;
+    this.ctx.shadowBlur = 17;
     this.ctx.shadowColor = "rgba(255,255,255,.3 )";
     this.currentSnake[this.currentSnake.length - 1].draw();
   }
