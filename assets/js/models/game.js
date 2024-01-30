@@ -8,7 +8,7 @@ class Game {
     this.sound = new Audio("assets/audio/background-music.wav");
     this.sound.loop = true;
     this.sound.currentTime = 0;
-    this.sound.volume = 0.1;
+    this.sound.volume = 0.03;
 
     this.pausePanel = document.getElementById("pause-panel");
     this.endPanel = document.getElementById("end-panel");
@@ -56,6 +56,7 @@ class Game {
       );
     }
     this.fruit.draw();
+    this.sound.play();
   }
 
   mainLoop() {
@@ -199,6 +200,7 @@ class Game {
       this.stop();
       this.toggleElementVisibility(this.pausePanel, true);
       this.toggleElementVisibility(this.canvas, false);
+      this.sound.pause();
     }
   }
 
